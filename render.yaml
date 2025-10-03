@@ -11,12 +11,12 @@ services:
       - key: PORT
         value: 10000
       - key: DB_HOST
-        value: localhost
+        value: dpg-d3fo6ifdiees73b2q3a0-a
       - key: DB_PORT
         value: "5432"
       - key: DB_USER
-        value: postgres
+        value: newspaper_subscription_user
       - key: DB_PASSWORD
-        value: judekennethdost
+        value: d1IupxVV8yo0CS2JKDg2z3h7OKUXWHOQ
       - key: DB_NAME
-        value: newsletter_db
+        value: newspaper_subscription
