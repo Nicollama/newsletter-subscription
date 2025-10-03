@@ -1,9 +1,9 @@
-// server.ts
 // 1. Load environment variables
 import 'dotenv/config';
 
 import express, { json } from 'express';
 import cors from 'cors';
+import path from 'path';
 import { DataSource } from 'typeorm';
 import { SubscribeToNewsletter } from './src/application/subscribe-newsletter';
 import { SubscriptionController } from './src/infrastructure/web/subscription-controller';
@@ -42,11 +42,19 @@ async function bootstrap() {
     app.use(cors());
     app.use(json());
 
+    // 👉 Serve static frontend (index.html, css, js)
+    app.use(express.static(path.join(__dirname, "../public")));
+
     // Health check
     app.get('/health', (_, res) => res.status(200).send('OK'));
 
-    // Subscribe endpoint
+    // API endpoint
     app.post('/subscribe', (req, res) => subscriptionController.subscribe(req, res));
+
+    // 👉 Catch-all: serve index.html for root and unknown routes
+    app.get("*", (_, res) => {
+      res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
 
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
