@@ -11,12 +11,12 @@ services:
       - key: PORT
         value: 10000
       - key: DB_HOST
-        sync: false
+        value: localhost
       - key: DB_PORT
-        sync: false
+        value: "5432"
       - key: DB_USER
-        sync: false
+        value: postgres
       - key: DB_PASSWORD
-        sync: false
+        value: judekennethdost
       - key: DB_NAME
-        sync: false
+        value: newsletter_db

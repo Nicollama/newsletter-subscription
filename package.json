@@ -6,8 +6,9 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "start": "node dist/server.ts",
-    "dev": "ts-node server.ts"
+    "start": "node dist/server.js",
+    "dev": "ts-node server.ts",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -23,6 +24,8 @@
     "@types/pg": "^8.11.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
-
